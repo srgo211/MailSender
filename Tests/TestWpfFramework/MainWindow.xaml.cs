@@ -24,5 +24,10 @@ namespace TestWpfFramework
         {
             InitializeComponent();
         }
+
+        private void sendToEmail_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
