@@ -20,6 +20,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LibMailSender\LibMailSender\LibMailSender.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Files\add.png" />
     <Resource Include="Files\clock.png" />
     <Resource Include="Files\edit.png" />
