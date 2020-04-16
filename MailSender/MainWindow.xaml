@@ -127,10 +127,54 @@
 
 
             </TabItem>
+            <!-- Конец Вкладки Рассылки-->
+
+            <!--Вкладка Планировщик-->
+            <TabItem Header="Планировщик">
+                <DockPanel>
+                    <!--Создаем рамку и добавлеяе заголовки-->
+                    <GroupBox  Header="Управление">
+                        <StackPanel>
+                            <TextBlock Text="Календарь:" HorizontalAlignment="Center"/>
+                            <!--Добавляем календарь-->
+                            <Calendar/>
+
+                            <!--Создаем группу кнопок-->
+                            <StackPanel Margin="10,10">
+                                <!--Кнопка Запланировать-->
+                                <Button>
+                                    <DockPanel>
+                                        <im:ImageAwesome Icon="CalendarCheckOutline" Foreground="Blue" Height="14" DockPanel.Dock="Right" Margin="5,5"/>
+                                        <TextBlock Text="Запланировать" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </DockPanel>
+                                </Button>
+
+                                <!--Кнопка Отправить-->
+                                <Button>
+                                    <DockPanel>
+                                        <im:ImageAwesome Icon="Send" Foreground="Green" Height="14" DockPanel.Dock="Right" Margin="5,5"/>
+                                        <TextBlock Text="Отправить" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </DockPanel>
+                                </Button>
+                            </StackPanel>
+
+
+                        </StackPanel>
+
+
+                    </GroupBox>
 
 
 
-            <TabItem Header="Планировщик"/>
+                    <GroupBox Header="Задания"/>
+
+                </DockPanel>
+            
+            </TabItem>
+            <!-- Конец Вкладки Планировщик-->
+
+
+
             <TabItem Header="Письма"/>
             <TabItem Header="Статистика"/>
         </TabControl>
