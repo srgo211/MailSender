@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:im="http://schemas.fontawesome.io/icons/"
         xmlns:local="clr-namespace:MailSender"
         mc:Ignorable="d"
         Title="MailSender" Height="600" Width="800">
@@ -49,42 +50,79 @@
 
                         <!--Отправители-->
                         <ToolBar Header="Отправители">
-                            
                             <ComboBox Width="150"></ComboBox>
 
                             <Button ToolTip="Добавить">
-                                <Image Height="24" Source="Files\add.png"/>
+                                <Image Height="14" Source="Files\add.png"/>
                             </Button>
-                            <Button Content="Удалить"/>
-                            <Button Content="Сохранить"/>
+
+                            <Button ToolTip="Редактировать">
+                                <Image Height="14" Source="Files\edit.png"/>
+                            </Button>
+                            
+                            <Button ToolTip="Удалить" Background="Red">
+                                <Image Height="14" Source="Files\remove.png"/>
+                            </Button>
                         </ToolBar>
 
                         <!--Сервера-->
                         <ToolBar Header="Сервера" Band="1" BandIndex="0">
                             
                               <ComboBox Width="150"></ComboBox>
-                            
-                            <Button Content="Добавить"/>
-                            <Button Content="Удалить"/>
-                            <Button Content="Сохранить"/>
+
+                            <Button ToolTip="Добавить">
+                                <im:ImageAwesome Icon="PlusSquare" Foreground="Green" Height="14"/>
+                            </Button>
+
+                            <Button ToolTip="Удалить">
+                                <im:ImageAwesome Icon="MinusSquare" Foreground="Green" Height="14"/>
+                            </Button>
+
+                            <Button ToolTip="Сохранить">
+                                <im:ImageAwesome Icon="Save" Foreground="Blue" Height="14"/>
+                            </Button>
                         </ToolBar>
 
                         <!--Получатели-->
                         <ToolBar Header="Получатели" Band="1" >
-                            <Button Content="Кнопка 1"/>
-                            <Button Content="Кнопка 2"/>
-                            <Button Content="Кнопка 3"/>
+                            <Button ToolTip="Добавить">
+                                <im:ImageAwesome Icon="UserPlus" Foreground="Green" Height="14"/>
+                            </Button>
+
+                            <Button ToolTip="Удалить">
+                                <im:ImageAwesome Icon="MinusSquare" Foreground="Green" Height="14"/>
+                            </Button>
+
+                            <Button ToolTip="Сохранить">
+                                <im:ImageAwesome Icon="Save" Foreground="Blue" Height="14"/>
+                            </Button>
                         </ToolBar>
 
                         <!--Перейти в планировщик-->
                         <ToolBar Band="0">
-                            <Button Content="Перейти в планировщик"/>
+                            <Button>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Перейти в планировщик</TextBlock>
+                                    <im:ImageAwesome Height="14" Icon="Calendar" Foreground="Blue" Margin="3,0"/>
+                                </StackPanel>
+                            </Button>
                         </ToolBar>
 
                     </ToolBarTray>
                     
                     <!--Создаем рамку и добавляем туда заголовок-->
-                    <GroupBox Grid.Row="1" Header="Получатели писем"/>
+                    <GroupBox Grid.Row="1" Header="Получатели писем">
+                        <!--Добавляем таблицу-->
+                        <DataGrid>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Id" Width="50"/>
+                                <DataGridTextColumn Header="Имя" MinWidth="150"/>
+                                <DataGridTextColumn Header="Адрес" MinWidth="300"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+
+                    </GroupBox>
                 </Grid>
 
 
