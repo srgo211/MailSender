@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="232,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="113"><Run Text="Имя пользователя"/><Run Text=":"/></TextBlock>
-        <TextBlock  HorizontalAlignment="Left" Margin="422,146,0,0" TextWrapping="Wrap" Text="Пароль:" VerticalAlignment="Top" Height="21" Width="113"/>
-        <TextBox x:Name="userName" HorizontalAlignment="Left" Height="23" Margin="230,172,0,0" TextWrapping="Wrap" Text="UserName" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox x:Name="password" HorizontalAlignment="Left" Height="23" Margin="417,174,0,0"   VerticalAlignment="Top" Width="120" Password="pass"/>
-        <Button x:Name="sendToEmail" Content="Send" HorizontalAlignment="Left" Margin="340,217,0,0" VerticalAlignment="Top" Width="76" Click="sendToEmail_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="170,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="113"><Run Text="Имя пользователя"/><Run Text=":"/></TextBlock>
+        <TextBlock  HorizontalAlignment="Left"  Text="Пароль:"  Height="21" Width="114" Margin="436,144,0,254"/>
+        <TextBox x:Name="userName" HorizontalAlignment="Left" Height="30" Margin="140,175,0,0" TextWrapping="Wrap" Text="UserName" VerticalAlignment="Top" Width="230"/>
+        <PasswordBox x:Name="password" HorizontalAlignment="Left" Height="30" Margin="436,175,0,0"   VerticalAlignment="Top" Width="230" Password="pass"/>
+        <Button x:Name="sendToEmail" Content="Send" HorizontalAlignment="Left" Margin="300,240,0,0" VerticalAlignment="Top" Width="182" Click="sendToEmail_Click" Height="41"/>
 
     </Grid>
 </Window>
