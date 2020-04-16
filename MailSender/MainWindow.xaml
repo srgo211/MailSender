@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MailSender"
         mc:Ignorable="d"
-        Title="MailSender" Height="450" Width="800">
-    <Grid>
+        Title="MailSender" Height="600" Width="800">
+    
+    
+    
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Фаил">
+                <MenuItem Header="Создать"/>
+                <MenuItem Header="Открыть"/>
+                <MenuItem Header="Закрыть"/>
+                <MenuItem Header="Сохранить"/>
+                <Separator/>
+                <MenuItem Header="Выход"/>
+            </MenuItem>
 
-    </Grid>
+             <MenuItem Header="Сервис"/>
+            
+            <MenuItem Header="Помощь"/>
+            
+
+        </Menu>
+
+        <TabControl>
+            <TabItem Header="Рассылки"/>
+            <TabItem Header="Статистика"/>
+        </TabControl>
+
+
+    </DockPanel>
 </Window>
