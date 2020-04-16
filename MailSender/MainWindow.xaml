@@ -10,7 +10,8 @@
     
     
     <DockPanel>
-        <Menu DockPanel.Dock="Top">
+             <!--Меню программы-->
+            <Menu DockPanel.Dock="Top">
             <MenuItem Header="Фаил">
                 <MenuItem Header="Создать"/>
                 <MenuItem Header="Открыть"/>
@@ -26,11 +27,76 @@
             
 
         </Menu>
-
+        
+        <StatusBar DockPanel.Dock="Bottom">
+            <TextBlock Text="Тут будет выводиться информация о состоянии программы..."/>
+        </StatusBar>
+        
+        <!--Основные вкладки программы-->
         <TabControl>
-            <TabItem Header="Рассылки"/>
+
+            <!--Вкладка Рассылки-->
+            <TabItem Header="Рассылки" ToolTip="Управление рассылками">
+                <Grid>
+                    <!--Деление на строки-->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height = "Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <!--Создаем панель иконок-->
+                    <ToolBarTray>
+
+                        <!--Отправители-->
+                        <ToolBar Header="Отправители">
+                            
+                            <ComboBox Width="150"></ComboBox>
+
+                            <Button ToolTip="Добавить">
+                                <Image Height="24" Source="Files\add.png"/>
+                            </Button>
+                            <Button Content="Удалить"/>
+                            <Button Content="Сохранить"/>
+                        </ToolBar>
+
+                        <!--Сервера-->
+                        <ToolBar Header="Сервера" Band="1" BandIndex="0">
+                            
+                              <ComboBox Width="150"></ComboBox>
+                            
+                            <Button Content="Добавить"/>
+                            <Button Content="Удалить"/>
+                            <Button Content="Сохранить"/>
+                        </ToolBar>
+
+                        <!--Получатели-->
+                        <ToolBar Header="Получатели" Band="1" >
+                            <Button Content="Кнопка 1"/>
+                            <Button Content="Кнопка 2"/>
+                            <Button Content="Кнопка 3"/>
+                        </ToolBar>
+
+                        <!--Перейти в планировщик-->
+                        <ToolBar Band="0">
+                            <Button Content="Перейти в планировщик"/>
+                        </ToolBar>
+
+                    </ToolBarTray>
+                    
+                    <!--Создаем рамку и добавляем туда заголовок-->
+                    <GroupBox Grid.Row="1" Header="Получатели писем"/>
+                </Grid>
+
+
+            </TabItem>
+
+
+
+            <TabItem Header="Планировщик"/>
+            <TabItem Header="Письма"/>
             <TabItem Header="Статистика"/>
         </TabControl>
+
 
 
     </DockPanel>
