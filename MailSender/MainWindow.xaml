@@ -140,6 +140,13 @@
                             <!--Добавляем календарь-->
                             <Calendar/>
 
+                            <DatePicker Name="dp1">
+                                <DatePicker.BlackoutDates>
+                                    <CalendarDateRange Start="2019-04-01" End="2019-04-07" />
+                                    <CalendarDateRange Start="2019-04-22" End="2019-04-28" />
+                                </DatePicker.BlackoutDates>
+                            </DatePicker>
+
                             <!--Создаем группу кнопок-->
                             <StackPanel Margin="10,10">
                                 <!--Кнопка Запланировать-->
@@ -254,7 +261,26 @@
                     </GroupBox>
 
                     <!--Выбранное письмо-->
-                    <GroupBox Header="Выбранное письмо" Grid.Column="1"/>
+                    <GroupBox Header="Выбранное письмо" Grid.Column="1">
+                        <DockPanel>
+                            <!--Заголовок письма-->
+                            <GroupBox DockPanel.Dock="Top" Header="Тема письма">
+                                <TextBox Text="Заголовок письма"/>
+                            </GroupBox>
+                            
+                            <!--Содержание письма-->
+                            <GroupBox Header="Текст письма">
+                                <TextBox AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="ru-Ru"/>
+                                
+                            </GroupBox>
+                        </DockPanel>
+
+
+                    </GroupBox>
+
+
+
+
                 </Grid>
             </TabItem>
             <!-- Конец Вкладки Письма-->
