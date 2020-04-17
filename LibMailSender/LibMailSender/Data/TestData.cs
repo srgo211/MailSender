@@ -24,5 +24,15 @@ namespace LibMailSender.Data
 
         };
 
+
+        /// <summary>Список получателей почты</summary>
+        public static List<Recipient> ListRecipients { get; } = new List<Recipient>
+        {
+            new Recipient {AddressToEmail = "ivanov@email.com", Name = "Иванов П" },
+            new Recipient {AddressToEmail = "petrov@email.com", Name = "Петров П" },
+            new Recipient {AddressToEmail = "sidorov@email.com", Name = "Сидоров П" }
+
+        };
+
     }
 }

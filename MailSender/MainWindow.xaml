@@ -74,7 +74,7 @@
                         <!--Сервера-->
                         <ToolBar Header="Сервера" Band="1" BandIndex="0">
                             <!--Режим отображения данных 2 вариант-->
-                            <ComboBox Width="150"
+                            <ComboBox Name="ServersList" Width="150" 
                                       ItemsSource="{x:Static data:TestData.ListServers}" SelectedItem="0">
                                 <!--Шаблон отображения данных-->
                                     <ComboBox.ItemTemplate>
@@ -136,11 +136,17 @@
                     <!--Создаем рамку и добавляем туда заголовок-->
                     <GroupBox Grid.Row="1" Header="Получатели писем">
                         <!--Добавляем таблицу-->
-                        <DataGrid>
+                        <DataGrid x:Name="RecipientsList"
+                                  ItemsSource ="{x:Static data:TestData.ListRecipients}" 
+                                  AutoGenerateColumns="False"
+                                  IsReadOnly="True"
+                                  VerticalGridLinesBrush="Gray"
+                                  HorizontalGridLinesBrush="Beige"
+                                  AlternatingRowBackground="LightGray">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Id" Width="50"/>
-                                <DataGridTextColumn Header="Имя" MinWidth="150"/>
-                                <DataGridTextColumn Header="Адрес" MinWidth="300"/>
+                                <DataGridTextColumn Header="Имя" Binding="{Binding Name}" MinWidth="150"/>
+                                <DataGridTextColumn Header="Email" Binding="{Binding AddressToEmail}" MinWidth="300"/>
                             </DataGrid.Columns>
                         </DataGrid>
 
@@ -181,7 +187,7 @@
                                 </Button>
 
                                 <!--Кнопка Отправить-->
-                                <Button>
+                                <Button Click="btnSendClick" >
                                     <DockPanel>
                                         <im:ImageAwesome Icon="Solid_Share" Foreground="Green" Height="14" DockPanel.Dock="Right" Margin="5,5"/>
                                         <TextBlock Text="Отправить" HorizontalAlignment="Center" VerticalAlignment="Center"/>
