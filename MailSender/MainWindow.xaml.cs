@@ -18,9 +18,11 @@ namespace MailSender
 
         private void btnSendClick(object sender, RoutedEventArgs e)
         {
-            //извлекаем данные получателей писем
+            //извлекаем данные
             var recipient = RecipientsList.SelectedItem as Recipient;
+            //получаем данные отправителя
             var senders = SendersList.SelectedItem as Sender;
+            //получаем данные сервера
             var server = ServersList.SelectedItem as Server;
 
             //проверка
@@ -31,6 +33,27 @@ namespace MailSender
             emailSend.Send(MailHeader.Text,MailBody.Text,senders.AddressToEmail,recipient.AddressToEmail);
         
         
+        }
+        /// <summary>
+        /// Клик Редактировать отправителя
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnEditClick(object sender, RoutedEventArgs e)
+        {
+            //получаем данные отправителя
+            var senders = SendersList.SelectedItem as Sender;
+            if (senders is null) return;
+
+            var dialog = new SenderEditor(senders);
+
+            if (dialog.ShowDialog() !=true) return;
+
+            senders.Name = dialog.Name;
+            senders.AddressToEmail = dialog.AdresValue;
+
+
+
         }
     }   
 }

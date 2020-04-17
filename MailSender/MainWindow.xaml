@@ -56,13 +56,13 @@
                                       ItemsSource="{x:Static data:TestData.ListSenders}"
                                       DisplayMemberPath="AddressToEmail"
                                       SelectedItem="0"
-                                      IsEditable="True"/>
+                                      IsEditable="False"/>
 
                             <Button ToolTip="Добавить">
                                 <Image Height="14" Source="Files\add.png"/>
                             </Button>
 
-                            <Button ToolTip="Редактировать">
+                            <Button ToolTip="Редактировать" Click="btnEditClick">
                                 <Image Height="14" Source="Files\edit.png"/>
                             </Button>
                             
