@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Net.Mail;
 using System.Text;
+using System.Diagnostics;
 
 namespace LibMailSender.Modules
 {
     /// <summary>Класс отправки почты</summary>
-     public class MailSender
+    public class MailSenderDebug
     {
         readonly string _AdressSMTP;
         readonly int _Port;
@@ -22,7 +23,7 @@ namespace LibMailSender.Modules
         /// <param name="UseSSL">Использовать защищенное соединеие</param>
         /// <param name="LoginToEmail">Логин от email</param>
         /// <param name="PasswordToEmail">Пароль от email</param>
-        public MailSender(string AdressSMTP, int Port, bool UseSSL, string LoginToEmail, string PasswordToEmail)
+        public MailSenderDebug(string AdressSMTP, int Port, bool UseSSL, string LoginToEmail, string PasswordToEmail)
         {
             _AdressSMTP = AdressSMTP;
             _Port = Port;
@@ -43,31 +44,13 @@ namespace LibMailSender.Modules
         public void Send(string Subject, string Body, string From, string To)
         {
 
-            // создаем объект сообщения
-            using (MailMessage msg = new MailMessage(From, To))
-            {
-
-                msg.Subject = Subject; 
-                msg.Body = Body;
-                msg.IsBodyHtml = false;
-
-                // адрес smtp-сервера и порт, с которого будем отправлять письмо
-                using (SmtpClient smtp = new SmtpClient())
-                {
-                    smtp.Host = _AdressSMTP;    //адрес сервера
-                    smtp.Port = _Port;          //порт
-                    smtp.EnableSsl = _UseSSL;   // не используем шифрование
-                    smtp.Credentials = new System.Net.NetworkCredential(_LoginToEmail, _PasswordToEmail); //проверка учетной записи логин и пароль от почты
-
-                    smtp.Send(msg);
-
-                    
-                }
-            }
+            Debug.WriteLine("Отправка почты от {0} к {1} через {2}:{3} [{4}]\r\n{5}, {6}",
+                                            From,To, _AdressSMTP,_Port, _UseSSL ? "SSL": "NOSSL",
+                                            Subject,Body);
 
 
         }
-    
-    
+
+
     }
 }

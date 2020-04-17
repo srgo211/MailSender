@@ -294,12 +294,12 @@
                         <DockPanel>
                             <!--Заголовок письма-->
                             <GroupBox DockPanel.Dock="Top" Header="Тема письма">
-                                <TextBox Text="Заголовок письма"/>
+                                <TextBox Name="MailHeader" Text="Заголовок письма"/>
                             </GroupBox>
                             
                             <!--Содержание письма-->
                             <GroupBox Header="Текст письма">
-                                <TextBox AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="ru-Ru"/>
+                                <TextBox Name="MailBody" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="ru-Ru"/>
                                 
                             </GroupBox>
                         </DockPanel>

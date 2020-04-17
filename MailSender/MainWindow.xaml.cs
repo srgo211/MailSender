@@ -26,7 +26,11 @@ namespace MailSender
             //проверка
             if (recipient is null || senders is null || server is null) return;
 
-            //var emailSend = new MailSender();
+            var emailSend = new LibMailSender.Modules.MailSender(server.AddressSMTP, server.Port, server.UseSSL,server.LoginToEmail,server.PasswordToEmail);
+
+            emailSend.Send(MailHeader.Text,MailBody.Text,senders.AddressToEmail,recipient.AddressToEmail);
+        
+        
         }
-    }
+    }   
 }
