@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:im="http://schemas.fontawesome.io/icons/"
+        xmlns:data="clr-namespace:LibMailSender.Data;assembly=LibMailSender"
         xmlns:local="clr-namespace:MailSender"
         mc:Ignorable="d"
         Title="MailSender" MinHeight="400" MinWidth="600">
@@ -50,7 +51,11 @@
 
                         <!--Отправители-->
                         <ToolBar Header="Отправители">
-                            <ComboBox Width="150"></ComboBox>
+                            <!--Режим отображения данных 1 вариант-->
+                            <ComboBox x:Name="SendersList"  Width="150"
+                                      ItemsSource="{x:Static data:TestData.ListSenders}"
+                                      DisplayMemberPath="AddressToEmail"
+                                      SelectedItem="0"/>
 
                             <Button ToolTip="Добавить">
                                 <Image Height="14" Source="Files\add.png"/>
@@ -67,8 +72,25 @@
 
                         <!--Сервера-->
                         <ToolBar Header="Сервера" Band="1" BandIndex="0">
-                            
-                              <ComboBox Width="150"></ComboBox>
+                            <!--Режим отображения данных 2 вариант-->
+                            <ComboBox Width="150"
+                                      ItemsSource="{x:Static data:TestData.ListServers}" SelectedItem="0">
+                                <!--Шаблон отображения данных-->
+                                    <ComboBox.ItemTemplate>
+                                    <DataTemplate DataType="Entities.Server">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
+                                            <TextBlock Text=" "/>
+                                            <TextBlock Text="{Binding AddressSMTP}" Opacity="0.5"/>
+                                            <TextBlock Text=":" Opacity="0.5"/>
+                                            <TextBlock Text="{Binding Port}" Opacity="0.5"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+
+
+
+                            </ComboBox>
 
                             <Button ToolTip="Добавить">
                                 <im:ImageAwesome Icon="PlusSquare" Foreground="Green" Height="14"/>
