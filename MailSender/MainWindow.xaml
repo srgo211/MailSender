@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:im="http://schemas.fontawesome.io/icons/"
+        xmlns:im="http://schemas.fontawesome.com/icons/"
         xmlns:data="clr-namespace:LibMailSender.Data;assembly=LibMailSender"
         xmlns:local="clr-namespace:MailSender"
         mc:Ignorable="d"
@@ -55,7 +55,8 @@
                             <ComboBox x:Name="SendersList"  Width="150"
                                       ItemsSource="{x:Static data:TestData.ListSenders}"
                                       DisplayMemberPath="AddressToEmail"
-                                      SelectedItem="0"/>
+                                      SelectedItem="0"
+                                      IsEditable="True"/>
 
                             <Button ToolTip="Добавить">
                                 <Image Height="14" Source="Files\add.png"/>
@@ -93,30 +94,30 @@
                             </ComboBox>
 
                             <Button ToolTip="Добавить">
-                                <im:ImageAwesome Icon="PlusSquare" Foreground="Green" Height="14"/>
+                                <im:ImageAwesome Icon="Solid_PlusSquare" Foreground="Green" Height="14"/>
                             </Button>
 
                             <Button ToolTip="Удалить">
-                                <im:ImageAwesome Icon="MinusSquare" Foreground="Green" Height="14"/>
+                                <im:ImageAwesome Icon="Solid_MinusSquare" Foreground="Green" Height="14"/>
                             </Button>
 
                             <Button ToolTip="Сохранить">
-                                <im:ImageAwesome Icon="Save" Foreground="Blue" Height="14"/>
+                                <im:ImageAwesome Icon="Solid_Save" Foreground="Blue" Height="14"/>
                             </Button>
                         </ToolBar>
 
                         <!--Получатели-->
                         <ToolBar Header="Получатели" Band="1" >
                             <Button ToolTip="Добавить">
-                                <im:ImageAwesome Icon="UserPlus" Foreground="Green" Height="14"/>
+                                <im:ImageAwesome Icon="Solid_UserPlus" Foreground="Green" Height="14"/>
                             </Button>
 
                             <Button ToolTip="Удалить">
-                                <im:ImageAwesome Icon="MinusSquare" Foreground="Green" Height="14"/>
+                                <im:ImageAwesome Icon="Solid_UserMinus" Foreground="Green" Height="14"/>
                             </Button>
 
                             <Button ToolTip="Сохранить">
-                                <im:ImageAwesome Icon="Save" Foreground="Blue" Height="14"/>
+                                <im:ImageAwesome Icon="Solid_Save" Foreground="Blue" Height="14"/>
                             </Button>
                         </ToolBar>
 
@@ -125,7 +126,7 @@
                             <Button>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Перейти в планировщик</TextBlock>
-                                    <im:ImageAwesome Height="14" Icon="Calendar" Foreground="Blue" Margin="3,0"/>
+                                    <im:ImageAwesome Height="14" Icon="Solid_Calendar" Foreground="Blue" Margin="3,0"/>
                                 </StackPanel>
                             </Button>
                         </ToolBar>
@@ -174,7 +175,7 @@
                                 <!--Кнопка Запланировать-->
                                 <Button>
                                     <DockPanel>
-                                        <im:ImageAwesome Icon="CalendarCheckOutline" Foreground="Blue" Height="14" DockPanel.Dock="Right" Margin="5,5"/>
+                                        <im:ImageAwesome Icon="Solid_CalendarCheck" Foreground="Blue" Height="14" DockPanel.Dock="Right" Margin="5,5"/>
                                         <TextBlock Text="Запланировать" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                     </DockPanel>
                                 </Button>
@@ -182,7 +183,7 @@
                                 <!--Кнопка Отправить-->
                                 <Button>
                                     <DockPanel>
-                                        <im:ImageAwesome Icon="Send" Foreground="Green" Height="14" DockPanel.Dock="Right" Margin="5,5"/>
+                                        <im:ImageAwesome Icon="Solid_Share" Foreground="Green" Height="14" DockPanel.Dock="Right" Margin="5,5"/>
                                         <TextBlock Text="Отправить" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                     </DockPanel>
                                 </Button>
@@ -259,14 +260,14 @@
                                 <Button>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="Добавить"/>
-                                        <im:ImageAwesome Width="14" Icon="PlusCircle" Foreground="Green" Margin="5,0"/>
+                                        <im:ImageAwesome Width="14" Icon="Solid_PlusCircle" Foreground="Green" Margin="5,0"/>
                                     </StackPanel>
                                 </Button>
 
                                 <Button>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="Удалить"/>
-                                        <im:ImageAwesome Width="14" Icon="MinusCircle" Foreground="Red" Margin="5,0"/>
+                                        <im:ImageAwesome Width="14" Icon="Solid_MinusCircle" Foreground="Red" Margin="5,0"/>
                                     </StackPanel>
                                 </Button>
                             </UniformGrid>
