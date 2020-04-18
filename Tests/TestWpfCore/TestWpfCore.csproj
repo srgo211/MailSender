@@ -6,4 +6,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\LibMailSender\LibMailSender\LibMailSender.csproj" />
+  </ItemGroup>
+
 </Project>
