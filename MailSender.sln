@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWpfFramework", "Tests\T
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{F4FC40E7-063C-46DB-9161-5201728AD0EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibMailSender", "LibMailSender\LibMailSender\LibMailSender.csproj", "{87B26609-D626-44FA-AC22-8F9EDF2E0E39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibMailSender", "LibMailSender\LibMailSender\LibMailSender.csproj", "{87B26609-D626-44FA-AC22-8F9EDF2E0E39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
