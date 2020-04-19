@@ -18,15 +18,16 @@
             <TextBox Width="200" HorizontalAlignment="Left" Text="{Binding Title}" Margin="0,10"/>
             <TextBox Width="200" HorizontalAlignment="Left" Text="{Binding TestTxtValue, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <Slider Width="150" Height="50" Minimum="-360" Maximum="360" Value="{Binding TestTxtValue, UpdateSourceTrigger=PropertyChanged}" />
+            <Slider Width="150" Height="50" TickFrequency="1" IsSnapToTickEnabled="True" Minimum="-1000" Maximum="1000"  Value="{Binding TestTxtValue, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
 
-        <Ellipse Margin="118,128,526,254" RenderTransformOrigin="0.5,0.5" Fill="Green">
+        <Ellipse MaxHeight="300" Width="50"  RenderTransformOrigin="0.5,0.5" Fill="Green">
             <Ellipse.RenderTransform>
                 <TransformGroup>
-                                    
+
                     <RotateTransform Angle="{Binding TestTxtValue}"/>
-                    
+                    <TranslateTransform X="{Binding TestTxtValue}" Y="50"/>
+
                 </TransformGroup>
             </Ellipse.RenderTransform>
 
