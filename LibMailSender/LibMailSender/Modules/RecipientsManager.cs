@@ -1,4 +1,5 @@
 ﻿using LibMailSender.Entities;
+using LibMailSender.Modules.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +9,7 @@ namespace LibMailSender.Modules
     /// <summary>
     /// Менеджер Получателей писем
     /// </summary>
-    public class RecipientsManager
+    public class RecipientsManager : IRecipientManager
     {
 
         private RecipientsStoreInMemory _Store;
