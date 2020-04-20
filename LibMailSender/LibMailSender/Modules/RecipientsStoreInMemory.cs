@@ -13,5 +13,31 @@ namespace LibMailSender.Modules
         /// </summary>
         /// <returns></returns>
         public IEnumerable<Recipient> Get() => TestData.ListRecipients;
+
+        /// <summary>
+        /// Правка Получателей
+        /// </summary>
+        /// <param name="id">Идентификатор получателя</param>
+        /// <param name="recipient">информацию которую нужно править</param>
+        public void Edit(int id, Recipient recipient)
+        {
+            /*т.к. у нас хранится в памяти то ничего не делаем
+             * если хранили в БД
+             * то взяли бы контент БД 
+             * и внесли изменения в запись с указанным ID
+             * а инфо взять из recipient
+             * */
+        }
+
+        /// <summary>
+        /// Сохранение информации
+        /// </summary>
+        public void SaveChanges()
+        {
+            /*т.к. у нас хранится в памяти то ничего не делаем
+             * если хранили в БД
+             * то внести измения в БД
+             * */
+        }
     }
 }

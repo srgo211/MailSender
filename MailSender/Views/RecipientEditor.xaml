@@ -36,7 +36,12 @@
 
             <UniformGrid Rows="1"  Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" 
                      VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,10">
-                <Button Content="Сохранить" Margin="10,0" Padding="10,5"/>
+               
+                <!--Привязываем кнопку и указываем какой параметр должен быть сохранен -->
+                <Button Content="Сохранить" Margin="10,0" Padding="10,5"
+                        Command="{Binding SaveRecipientsChangesCommand}"
+                        CommandParameter="{Binding SalectedRecipient}"/>
+                
                 <Button Content="Создать" Margin="10,0" Padding="10,5"/>
             </UniformGrid>
         

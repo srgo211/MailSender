@@ -1,10 +1,12 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.CommandWpf;
 using LibMailSender.Entities;
 using LibMailSender.Modules;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
 
 namespace MailSender.ViewModel
 {
@@ -37,10 +39,54 @@ namespace MailSender.ViewModel
             set => Set(ref _SalectedRecipient, value);
         }
 
+        #region Команды
+        /// <summary>Обновить Получателей</summary>
+        public ICommand LoadRecipientsDataCommand { get; }
+
+        public ICommand SaveRecipientsChangesCommand { get; }
+        #endregion
+
+
+        /// <summary>
+        /// Конструктур для Инициализации объектов 
+        /// </summary>
+        /// <param name="RecipientsManager"></param>
         public MainWindowViewModel(RecipientsManager RecipientsManager)
         {
+            //инициализируем команду Обновить Получателей - Рассылки
+            LoadRecipientsDataCommand = new RelayCommand(OnLoadRecipientsDataCommandExecuted, CanLoadRecipientsDataCommandExecute());
+           
+            //инициализируем Типизированнаю команду
+            SaveRecipientsChangesCommand = new RelayCommand<Recipient>(OnSaveRecipientsChangesCommand, CanSaveRecipientsChangesCommandExecute);
+            
+            
             _RecipientsManager = RecipientsManager;
-            _Recipients = new ObservableCollection<Recipient>(RecipientsManager.GetAll());
+            
+        }
+
+
+        private bool CanLoadRecipientsDataCommandExecute() => true;
+        private void OnLoadRecipientsDataCommandExecuted()
+        {
+            //загружаем данные в получателей
+            Recipients = new ObservableCollection<Recipient>(_RecipientsManager.GetAll());
+
+            //TODO загружаем данные в сервера, отправители
+
+        }
+
+
+        /// <summary>Критерий возможности выполнения команды для Сохранить Получателей</summary>
+        private bool CanSaveRecipientsChangesCommandExecute(Recipient recipient) => recipient!=null;
+       
+        /// <summary>метод сохранения данных Получателей</summary>
+        private void OnSaveRecipientsChangesCommand(Recipient recipient)
+        {
+            //правка данных
+            _RecipientsManager.Edit(recipient);
+            //сохранение информации
+            _RecipientsManager.SaveChanges();
+
         }
     }
 }

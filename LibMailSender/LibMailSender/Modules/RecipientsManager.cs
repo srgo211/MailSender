@@ -40,7 +40,26 @@ namespace LibMailSender.Modules
         {
         }
 
-        //Edit(Recipient)
+        /// <summary>
+        /// Правка информации
+        /// </summary>
+        /// <param name="Recipient"></param>
+        public void Edit(Recipient Recipient)
+        {
+            //берем место хранения данных
+            _Store.Edit(Recipient.Id, Recipient);
+
+        }
+
+        /// <summary>
+        /// Сохранение информации
+        /// </summary>
+        public void SaveChanges()
+        {
+            //вызываеем метод для сохранения информации
+            _Store.SaveChanges();
+        }
+
         //Delete (Recipient)
     }
 }
