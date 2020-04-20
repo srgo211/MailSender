@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight.Ioc;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using LibMailSender.Modules;
 
 namespace MailSender.ViewModel
 {
@@ -23,8 +24,13 @@ namespace MailSender.ViewModel
             ////    SimpleIoc.Default.Register<IDataService, DataService>();
             ////}
 
+            SimpleIoc services = SimpleIoc.Default;
+
             //региструем в контейнере сервиса класс
-            SimpleIoc.Default.Register<MainWindowViewModel>();
+            services.Register<MainWindowViewModel>();
+            services.Register<RecipientsManager>(); // регистрируем менеджера  получателей
+            services.Register<RecipientsStoreInMemory>(); //регистрируем ср-во хранения данных для менеджера получателей
+
         }
 
         //создаем св-во 

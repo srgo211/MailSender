@@ -138,7 +138,7 @@
                     <GroupBox Grid.Row="1" Header="Получатели писем">
                         <!--Добавляем таблицу-->
                         <DataGrid x:Name="RecipientsList"
-                                  ItemsSource ="{x:Static data:TestData.ListRecipients}" 
+                                  ItemsSource ="{Binding Recipients}" 
                                   AutoGenerateColumns="False"
                                   IsReadOnly="True"
                                   VerticalGridLinesBrush="Gray"
