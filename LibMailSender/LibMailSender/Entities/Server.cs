@@ -7,6 +7,7 @@ namespace LibMailSender.Entities
     /// <summary>Почтовый Сервер</summary>
     public class Server
     {
+        public int Id { get; set; }
         /// <summary>
         /// Имя почтового сервера
         /// </summary>

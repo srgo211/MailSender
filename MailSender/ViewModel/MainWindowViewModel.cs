@@ -27,6 +27,15 @@ namespace MailSender.ViewModel
             private set => Set(ref _Recipients, value);
         }
 
+        private Recipient _SalectedRecipient;
+        /// <summary>
+        ////св-во уведомлений об изменении объекта
+        /// </summary>
+        public Recipient SalectedRecipient
+        {
+            get => _SalectedRecipient;
+            set => Set(ref _SalectedRecipient, value);
+        }
 
         public MainWindowViewModel(RecipientsManager RecipientsManager)
         {

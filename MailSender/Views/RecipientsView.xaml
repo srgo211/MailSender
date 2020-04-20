@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MailSender.Views"
              mc:Ignorable="d" 
+             DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
              d:DesignHeight="450" d:DesignWidth="800">
     <DockPanel Margin="3">
         <TextBlock DockPanel.Dock="Top" Text="Получатели сообщений" HorizontalAlignment="Center" FontWeight="Bold"/>
@@ -17,13 +18,14 @@
         <Button DockPanel.Dock="Bottom" HorizontalAlignment="Center" Padding="40,5" Margin="0,5,0,10" Content="Обновить"/>
         <!--Добавляем таблицу-->
             <DataGrid ItemsSource ="{Binding MainWindowModel.Recipients, Source={StaticResource Locator}}" 
+                    SelectedItem="{Binding SalectedRecipient}" 
                     AutoGenerateColumns="False"
                     IsReadOnly="True"
                     VerticalGridLinesBrush="Gray"
                     HorizontalGridLinesBrush="Beige"
                     AlternatingRowBackground="LightGray">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id" Width="50"/>
+                    <DataGridTextColumn  Header="Id" Binding="{Binding Id}" Width="50"/>
                     <DataGridTextColumn Header="Имя" Binding="{Binding Name}" MinWidth="150"/>
                     <DataGridTextColumn Header="Email" Binding="{Binding AddressToEmail}" MinWidth="300"/>
                 </DataGrid.Columns>

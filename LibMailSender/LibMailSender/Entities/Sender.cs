@@ -7,6 +7,7 @@ namespace LibMailSender.Entities
     /// <summary> Класс отправителя</summary>
      public class Sender
     {
+        public int Id { get; set; }
         /// <summary>
         /// Имя отправителя
         /// </summary>
