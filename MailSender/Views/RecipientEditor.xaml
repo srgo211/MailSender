@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="MailSender.Views.RecipientEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MailSender.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="300">
+    <GroupBox >
+    <Grid Margin="5">
+        
+            <!--Столбец-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!--Строки-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <!--Наименование строк -->
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Id"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Имя"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Адресс"/>
+
+            <!--Наименование столбцов -->
+            <TextBox Grid.Row="0" Grid.Column="1"/>
+            <TextBox Grid.Row="1" Grid.Column="1"/>
+            <TextBox Grid.Row="2" Grid.Column="1"/>
+
+            <UniformGrid Rows="1"  Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" 
+                     VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,10">
+                <Button Content="Сохранить" Margin="10,0" Padding="10,5"/>
+                <Button Content="Создать" Margin="10,0" Padding="10,5"/>
+            </UniformGrid>
+        
+    </Grid>
+    </GroupBox>
+</UserControl>

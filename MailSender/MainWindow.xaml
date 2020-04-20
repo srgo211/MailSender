@@ -108,8 +108,8 @@
                             </Button>
                         </ToolBar>
 
-                        <!--Получатели-->
-                        <ToolBar Header="Получатели" Band="1" >
+                        <!--Получатели писем-->
+                        <ToolBar Header="Получатели" Band="1">
                             <Button ToolTip="Добавить">
                                 <im:ImageAwesome Icon="Solid_UserPlus" Foreground="Green" Height="14"/>
                             </Button>
@@ -137,9 +137,20 @@
                     
                     <!--Создаем рамку и добавляем туда заголовок-->
                     <GroupBox Grid.Row="1" Header="Получатели писем">
-                        <!--Добавляем таблицу-->
-                        <view:RecipientsView/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <!--Добавляем таблицу получателей привязываем ее из другого окна управления-->
+                            <view:RecipientsView Grid.Column="0"/>
 
+                            <!--Добавляем таблицу редактирования получателей из др. о/у-->
+                            <view:RecipientEditor Grid.Column="1"/>
+
+
+                        </Grid>
 
                     </GroupBox>
                 </Grid>
