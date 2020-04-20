@@ -23,7 +23,11 @@ namespace MailSender.ViewModel
             ////    SimpleIoc.Default.Register<IDataService, DataService>();
             ////}
 
-            //SimpleIoc.Default.Register<MainViewModel>();
+            //региструем в контейнере сервиса класс
+            SimpleIoc.Default.Register<MainWindowViewModel>();
         }
+
+        //создаем св-во 
+        public MainWindowViewModel MainWindowModel => ServiceLocator.Current.GetInstance<MainWindowViewModel>();
     }
 }
