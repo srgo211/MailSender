@@ -2,6 +2,7 @@
 using GalaSoft.MvvmLight.CommandWpf;
 using LibMailSender.Entities;
 using LibMailSender.Modules;
+using LibMailSender.Modules.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,7 +13,7 @@ namespace MailSender.ViewModel
 {
     public class MainWindowViewModel: ViewModelBase
     {
-        private readonly RecipientsManager _RecipientsManager;
+        private readonly IRecipientManager _RecipientsManager;
 
         private string _Title = "Рассыльщик почты";
         public string Title
@@ -51,7 +52,7 @@ namespace MailSender.ViewModel
         /// Конструктур для Инициализации объектов 
         /// </summary>
         /// <param name="RecipientsManager"></param>
-        public MainWindowViewModel(RecipientsManager RecipientsManager)
+        public MainWindowViewModel(IRecipientManager RecipientsManager)
         {
             //инициализируем команду Обновить Получателей - Рассылки
             LoadRecipientsDataCommand = new RelayCommand(OnLoadRecipientsDataCommandExecuted, CanLoadRecipientsDataCommandExecute());

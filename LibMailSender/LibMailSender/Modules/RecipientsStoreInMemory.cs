@@ -1,12 +1,13 @@
 ﻿using LibMailSender.Data;
 using LibMailSender.Entities;
+using LibMailSender.Modules.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace LibMailSender.Modules
 {
-    public class RecipientsStoreInMemory
+    public class RecipientsStoreInMemory : IRecipientsStore
     {
         /// <summary>
         /// Интерфейс для хранения инфо в памяти

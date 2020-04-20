@@ -12,12 +12,12 @@ namespace LibMailSender.Modules
     public class RecipientsManager : IRecipientManager
     {
 
-        private RecipientsStoreInMemory _Store;
+        private IRecipientsStore _Store;
         /// <summary>
         /// временный конструктор для хранения данных - потом можно изменить на любые данные (БД, файлы и тд)
         /// </summary>
         /// <param name="recipientStore"></param>
-        public RecipientsManager(RecipientsStoreInMemory Store)
+        public RecipientsManager(IRecipientsStore Store)
         {
             _Store = Store;
 

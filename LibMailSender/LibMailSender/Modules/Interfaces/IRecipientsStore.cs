@@ -14,6 +14,6 @@ namespace LibMailSender.Modules.Interfaces
 
         void Edit(int id, Recipient recipient);
 
-        public void SaveChanges();
+        void SaveChanges();
     }
 }
