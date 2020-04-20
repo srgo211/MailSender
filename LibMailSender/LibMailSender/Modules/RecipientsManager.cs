@@ -30,7 +30,7 @@ namespace LibMailSender.Modules
         /// <returns></returns>
         public IEnumerable<Recipient> GetAll()
         {
-            return _Store.Get();
+            return _Store.GetAll();
         }
 
         /// <summary>

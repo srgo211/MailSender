@@ -11,8 +11,9 @@
         <TextBlock DockPanel.Dock="Top" Text="Получатели сообщений" HorizontalAlignment="Center" FontWeight="Bold"/>
         <DockPanel DockPanel.Dock="Top" Margin="5,3,5,5">
             <TextBlock Text="Фильтр"/>
-            <TextBox>
-            </TextBox>
+            
+            <TextBox Text="{Binding SalectedRecipient.Name, Mode=TwoWay}"/>
+            
         </DockPanel>
 
         <Button Command="{Binding LoadRecipientsDataCommand}" DockPanel.Dock="Bottom" 

@@ -10,6 +10,7 @@ namespace TestConsoleFramework
     {
         static void Main(string[] args)
         {
+
         }
     }
 }

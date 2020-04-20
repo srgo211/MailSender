@@ -13,7 +13,7 @@ namespace LibMailSender.Modules
         /// Интерфейс для хранения инфо в памяти
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Recipient> Get() => TestData.ListRecipients;
+        public IEnumerable<Recipient> GetAll() => TestData.ListRecipients;
 
         /// <summary>
         /// Правка Получателей
