@@ -6,6 +6,7 @@
         xmlns:im="http://schemas.fontawesome.com/icons/"
         xmlns:data="clr-namespace:LibMailSender.Data;assembly=LibMailSender"
         xmlns:local="clr-namespace:MailSender"
+        xmlns:view="clr-namespace:MailSender.Views"
         mc:Ignorable="d"
         Title="{Binding Title}" MinHeight="400" MinWidth="600"
         DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}">
@@ -137,19 +138,7 @@
                     <!--Создаем рамку и добавляем туда заголовок-->
                     <GroupBox Grid.Row="1" Header="Получатели писем">
                         <!--Добавляем таблицу-->
-                        <DataGrid x:Name="RecipientsList"
-                                  ItemsSource ="{Binding Recipients}" 
-                                  AutoGenerateColumns="False"
-                                  IsReadOnly="True"
-                                  VerticalGridLinesBrush="Gray"
-                                  HorizontalGridLinesBrush="Beige"
-                                  AlternatingRowBackground="LightGray">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Id" Width="50"/>
-                                <DataGridTextColumn Header="Имя" Binding="{Binding Name}" MinWidth="150"/>
-                                <DataGridTextColumn Header="Email" Binding="{Binding AddressToEmail}" MinWidth="300"/>
-                            </DataGrid.Columns>
-                        </DataGrid>
+                        <view:RecipientsView/>
 
 
                     </GroupBox>

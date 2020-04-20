@@ -18,6 +18,7 @@ namespace MailSender
 
         private void btnSendClick(object sender, RoutedEventArgs e)
         {
+            /*
             //извлекаем данные
             var recipient = RecipientsList.SelectedItem as Recipient;
             //получаем данные отправителя
@@ -31,7 +32,7 @@ namespace MailSender
             var emailSend = new LibMailSender.Modules.MailSender(server.AddressSMTP, server.Port, server.UseSSL,server.LoginToEmail,server.PasswordToEmail);
 
             emailSend.Send(MailHeader.Text,MailBody.Text,senders.AddressToEmail,recipient.AddressToEmail);
-        
+        */
         
         }
         /// <summary>
