@@ -1,17 +1,14 @@
-﻿using System;
+﻿using LibMailSender.Entities.Base;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace LibMailSender.Entities
 {
     /// <summary>Почтовый Сервер</summary>
-    public class Server
+    public class Server : NamedEntity
     {
-        public int Id { get; set; }
-        /// <summary>
-        /// Имя почтового сервера
-        /// </summary>
-        public string Name { get; set; }
+ 
         /// <summary>
         /// Адрес исходящей почты SMTP
         /// </summary>
