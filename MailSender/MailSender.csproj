@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Models\**" />
+    <Page Remove="Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Files\add.png" />
     <None Remove="Files\clock.png" />
     <None Remove="Files\edit.png" />
@@ -31,10 +38,6 @@
     <Resource Include="Files\edit.png" />
     <Resource Include="Files\remove.png" />
     <Resource Include="Files\scheduler.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>
