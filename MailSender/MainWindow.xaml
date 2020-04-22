@@ -10,12 +10,12 @@
         mc:Ignorable="d"
         Title="{Binding Title}" MinHeight="400" MinWidth="600"
         DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}">
-    
-    
-    
+
+
+
     <DockPanel>
-             <!--Меню программы-->
-            <Menu DockPanel.Dock="Top">
+        <!--Меню программы-->
+        <Menu DockPanel.Dock="Top">
             <MenuItem Header="Фаил">
                 <MenuItem Header="Создать"/>
                 <MenuItem Header="Открыть"/>
@@ -25,17 +25,17 @@
                 <MenuItem Header="Выход"/>
             </MenuItem>
 
-             <MenuItem Header="Сервис"/>
-            
+            <MenuItem Header="Сервис"/>
+
             <MenuItem Header="Помощь"/>
-            
+
 
         </Menu>
-        
+
         <StatusBar DockPanel.Dock="Bottom">
             <TextBlock Text="Тут будет выводиться информация о состоянии программы..."/>
         </StatusBar>
-        
+
         <!--Основные вкладки программы-->
         <TabControl>
 
@@ -67,7 +67,7 @@
                             <Button ToolTip="Редактировать" Click="btnEditClick">
                                 <Image Height="14" Source="Files\edit.png"/>
                             </Button>
-                            
+
                             <Button ToolTip="Удалить" Background="Red">
                                 <Image Height="14" Source="Files\remove.png"/>
                             </Button>
@@ -79,7 +79,7 @@
                             <ComboBox Name="ServersList" Width="150" 
                                       ItemsSource="{x:Static data:TestData.ListServers}" SelectedItem="0">
                                 <!--Шаблон отображения данных-->
-                                    <ComboBox.ItemTemplate>
+                                <ComboBox.ItemTemplate>
                                     <DataTemplate DataType="Entities.Server">
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
@@ -134,20 +134,21 @@
                         </ToolBar>
 
                     </ToolBarTray>
-                    
+
                     <!--Создаем рамку и добавляем туда заголовок-->
                     <GroupBox Grid.Row="1" Header="Получатели писем">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="5*"/>
-                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="176*"/>
+                                <ColumnDefinition Width="332*"/>
+                                <ColumnDefinition Width="305*"/>
                             </Grid.ColumnDefinitions>
-                            
+
                             <!--Добавляем таблицу получателей привязываем ее из другого окна управления-->
-                            <view:RecipientsView Grid.Column="0"/>
+                            <view:RecipientsView Grid.Column="0" Grid.ColumnSpan="2"/>
 
                             <!--Добавляем таблицу редактирования получателей из др. о/у-->
-                            <view:RecipientEditor Grid.Column="1"/>
+                            <view:RecipientEditor Grid.Column="2"/>
 
 
                         </Grid>
@@ -205,7 +206,7 @@
                         <!--Пока тестовый режим чтоб наглядно видеть как будет
                             Потом будем добавлять все автоматически
                         -->
-                            <ListBox>
+                        <ListBox>
                             <ListBoxItem HorizontalContentAlignment="Stretch">
                                 <GroupBox Header="Задание 1">
                                     <StackPanel>
@@ -243,7 +244,7 @@
                     </GroupBox>
 
                 </DockPanel>
-            
+
             </TabItem>
             <!-- Конец Вкладки Планировщик-->
 
@@ -257,7 +258,7 @@
                         <ColumnDefinition MinWidth="150" MaxWidth="300"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    
+
                     <!--Список писем-->
                     <!--    Создаем рамку и добавляем заголовок -->
                     <GroupBox Header="Список писем">
@@ -297,11 +298,11 @@
                             <GroupBox DockPanel.Dock="Top" Header="Тема письма">
                                 <TextBox Name="MailHeader" Text="Заголовок письма"/>
                             </GroupBox>
-                            
+
                             <!--Содержание письма-->
                             <GroupBox Header="Текст письма">
                                 <TextBox Name="MailBody" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="ru-Ru"/>
-                                
+
                             </GroupBox>
                         </DockPanel>
 
@@ -314,7 +315,7 @@
                 </Grid>
             </TabItem>
             <!-- Конец Вкладки Письма-->
-            
+
             <TabItem Header="Статистика"/>
         </TabControl>
 

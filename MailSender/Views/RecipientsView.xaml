@@ -21,6 +21,7 @@
         <!--Добавляем таблицу-->
             <DataGrid ItemsSource ="{Binding MainWindowModel.Recipients, Source={StaticResource Locator}}" 
                     SelectedItem="{Binding SalectedRecipient}" 
+                   
                     AutoGenerateColumns="False"
                     IsReadOnly="True"
                     VerticalGridLinesBrush="Gray"

@@ -6,12 +6,25 @@
         xmlns:local="clr-namespace:TestWpfFramework"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="170,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="113"><Run Text="Имя пользователя"/><Run Text=":"/></TextBlock>
-        <TextBlock  HorizontalAlignment="Left"  Text="Пароль:"  Height="21" Width="114" Margin="436,144,0,254"/>
-        <TextBox x:Name="userName" HorizontalAlignment="Left" Height="30" Margin="140,175,0,0" TextWrapping="Wrap" Text="UserName" VerticalAlignment="Top" Width="230"/>
-        <PasswordBox x:Name="password" HorizontalAlignment="Left" Height="30" Margin="436,175,0,0"   VerticalAlignment="Top" Width="230" Password="pass"/>
-        <Button x:Name="sendToEmail" Content="Send" HorizontalAlignment="Left" Margin="300,240,0,0" VerticalAlignment="Top" Width="182" Click="sendToEmail_Click" Height="41"/>
 
-    </Grid>
+
+
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Height="100">
+            <TextBox  Height="40" BorderThickness="3" Margin="10" FontSize="16"/>
+            <Button Width="100" Height="40" Margin="0,0,0,10" Content="Ok"/>
+        </StackPanel>
+        
+        <GroupBox Header="Список элементов" Margin="10">
+            <ListBox
+                    SelectionMode="Extended"
+                    HorizontalContentAlignment="Stretch"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    ItemsSource="{Binding VideosView}"
+                    SelectedItem="{Binding SelectedVideo}"/>
+        </GroupBox>
+
+    </DockPanel>
 </Window>

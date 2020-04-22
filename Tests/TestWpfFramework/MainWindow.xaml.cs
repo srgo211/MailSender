@@ -31,9 +31,9 @@ namespace TestWpfFramework
 
 
             // отправитель - он же логин от почты
-            string from = userName.Text;
+            //string from = userName.Text;
             //пароль
-            string passToEmail = password.Password;
+            //string passToEmail = password.Password;
 
             // кому отправляем
             string to = "evgeniyzhuravlyov2000018dwh@rambler.ua";

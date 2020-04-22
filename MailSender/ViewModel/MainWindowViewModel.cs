@@ -6,13 +6,18 @@ using LibMailSender.Modules.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace MailSender.ViewModel
 {
     public class MainWindowViewModel: ViewModelBase
     {
+
+        private readonly IRecipientsStore _RecipientsDataService;
+
         private readonly IRecipientManager _RecipientsManager;
 
         private string _Title = "Рассыльщик почты";
@@ -45,6 +50,10 @@ namespace MailSender.ViewModel
         public ICommand LoadRecipientsDataCommand { get; }
 
         public ICommand SaveRecipientsChangesCommand { get; }
+
+
+        public ICommand CreateRecipientCommand { get; }
+
         #endregion
 
 
@@ -52,8 +61,11 @@ namespace MailSender.ViewModel
         /// Конструктур для Инициализации объектов 
         /// </summary>
         /// <param name="RecipientsManager"></param>
-        public MainWindowViewModel(IRecipientManager RecipientsManager)
+        public MainWindowViewModel(IRecipientManager RecipientsManager,
+                                   IRecipientsStore  RecipientsDataService)
         {
+            _RecipientsDataService = RecipientsDataService;
+
             //инициализируем команду Обновить Получателей - Рассылки
             LoadRecipientsDataCommand = new RelayCommand(OnLoadRecipientsDataCommandExecuted, CanLoadRecipientsDataCommandExecute());
            
@@ -62,7 +74,10 @@ namespace MailSender.ViewModel
             
             
             _RecipientsManager = RecipientsManager;
-            
+
+
+            CreateRecipientCommand = new RelayCommand(OnCreateRecipientExecuted, CanCreateRecipientExecuted);
+
         }
 
 
@@ -77,6 +92,16 @@ namespace MailSender.ViewModel
         }
 
 
+
+        
+
+ 
+
+
+
+
+
+
         /// <summary>Критерий возможности выполнения команды для Сохранить Получателей</summary>
         private bool CanSaveRecipientsChangesCommandExecute(Recipient recipient) => recipient!=null;
        
@@ -89,5 +114,45 @@ namespace MailSender.ViewModel
             _RecipientsManager.SaveChanges();
 
         }
+
+
+        private Recipient _CurrentRecipient;
+        public Recipient CurrentRecipient
+        {
+            get => _CurrentRecipient;
+            set => Set(ref _CurrentRecipient, value);
+        }
+
+
+
+
+
+        
+
+
+        private bool CanCreateRecipientExecuted() => true;
+        private  void OnCreateRecipientExecuted()
+        {
+
+            for (int a = 1; a < 1000; a++)
+            {
+                Recipient new_recipient = new Recipient()
+                {
+                    Id = a,
+                    Name = "New_Recipient" + a,
+                    AddressToEmail = "recipient@server.net" + a
+                };
+
+
+
+                _RecipientsDataService.Create(new_recipient);
+                _Recipients.Add(new_recipient);
+                CurrentRecipient = new_recipient;
+
+            }
+            
+            
+        }
+
     }
 }

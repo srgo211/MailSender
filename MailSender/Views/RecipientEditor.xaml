@@ -41,8 +41,8 @@
                 <Button Content="Сохранить" Margin="10,0" Padding="10,5"
                         Command="{Binding SaveRecipientsChangesCommand}"
                         CommandParameter="{Binding SalectedRecipient}"/>
-                
-                <Button Content="Создать" Margin="10,0" Padding="10,5"/>
+
+                <Button Command="{Binding CreateRecipientCommand}" Content="Создать" Margin="10,0" Padding="10,5"/>
             </UniformGrid>
         
     </Grid>
