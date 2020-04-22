@@ -1,33 +1,35 @@
-п»їusing System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using TestWPFramework2.MVVM;
+using GalaSoft.MvvmLight;
 
 namespace TestWPFramework2.ViewModel
 {
-    internal class MainViewModel : ViewModelBase
+
+    public class MainViewModel : ViewModelBase
     {
-        public ICommand CreateRecipientCommand { get; }
 
-     
-        #region РћР±СЂР°Р±РѕС‚РєР° С‚РµРєСЃС‚Р° Text
-        private string _Text = "Р›СЋР±РѕР№ С‚РµРєСЃС‚";
+        private string _Title = "Тестовый проект для привязки";
 
-        public string Text 
-        {
-            get => _Text;
-            set => Set(ref _Text, value); 
+        public string Title { get => _Title; set => Set(ref _Title, value); }
+
+
+        private string _Text = "Тестовый проект для привязки";
+        public string Text {
+            get => _Title;
+            
+            //если св-во обновилось
+            //if (set => Set(ref _Title, value))
+                    
         }
-        #endregion
+
+
+        private int _TextLight;
+        public int TextLight { get => _TextLight; set => Set(ref _TextLight, value); }
 
 
 
 
-
+        public MainViewModel()
+        {
+ 
+        }
     }
 }

@@ -4,12 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestWPFramework2"
-        xmlns:vm="clr-namespace:TestWPFramework2.ViewModel"
+        
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-        <Window.DataContext>
-            <vm:MainViewModel/>
-        </Window.DataContext>
+        DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
+        Title="{Binding Title}" Height="450" Width="800" >
+       
 
 
     <DockPanel>
@@ -18,8 +17,8 @@
             <StackPanel DockPanel.Dock="Top" Height="Auto">
 
                 <!--Текст 1-->
-                    <TextBox  Height="40" BorderThickness="3" Margin="10" FontSize="16"
-                          Text="{Binding Text}"/>
+                <TextBox  Height="40" BorderThickness="3" Margin="10" FontSize="16" BorderBrush="Red"/>
+
 
                 <!--Кнопки-->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -29,8 +28,7 @@
                 </StackPanel>
 
                 <!--Текст 2-->
-                <TextBox  Height="40" BorderThickness="3" Margin="10" FontSize="16"
-                          Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox  Height="40" BorderThickness="3" Margin="10" FontSize="16"/>
 
                 
                 <ComboBox Height="40" BorderThickness="3" Margin="10" FontSize="16">
@@ -53,8 +51,7 @@
                     Background="Transparent"
                     BorderThickness="0"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                    ItemsSource="{Binding List}"
-                    SelectedItem="{Binding Text}"/>
+                    />
                 </TabItem>
                 
                 <!--Таблица-->
