@@ -23,21 +23,29 @@
 
                 <!--Кнопки-->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Width="100" Height="40" Margin="0,0,0,10" Content="Старт"  />
-                    <Button Width="100" Height="40" Margin="0,0,0,10" Content="Стоп" />
+                    <Button Command="{Binding SaveStudentCMD}"  Width="100" Height="40" Margin="0,0,0,10" Content="Старт"  />
+                    <Button Command="{Binding DeleteStudentCMD}" Width="100" Height="40" Margin="0,0,0,10" Content="Стоп" />
 
                 </StackPanel>
 
                 <!--Текст 2-->
                 <TextBox  Height="40" BorderThickness="3" Margin="10" FontSize="16"
-                          Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"/>
+                          Text="{Binding id, UpdateSourceTrigger=PropertyChanged}"/>
 
-                
-                <ComboBox Height="40" BorderThickness="3" Margin="10" FontSize="16">
-                    <ComboBoxItem>
-                    
-                    </ComboBoxItem>
+
+                <ComboBox Height="40" BorderThickness="3" Margin="10" FontSize="16"
+                            ItemsSource="{Binding MyList}"
+                            SelectedItem="{Binding SelectedItemStudent}"
+                            DisplayMemberPath="name"
+                         
+                         
+                        IsEditable="True">
+
+
+
+
                 </ComboBox>
+                
 
             </StackPanel>
         </GroupBox>
@@ -51,18 +59,27 @@
                     SelectionMode="Extended"
                     HorizontalContentAlignment="Stretch"
                     Background="Transparent"
-                    BorderThickness="0"
+                    BorderThickness="3"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                    ItemsSource="{Binding List}"
-                    
-                      />
+                    ItemsSource="{Binding MyList}"
+                    SelectedItem="{Binding SelectedItemStudent}"
+                    DisplayMemberPath="name"         
+                             
+                    />
                 </TabItem>
                 
                 <!--Таблица-->
                     <TabItem  Header="Таблица">
-                    <DataGrid>
-                        
-                        
+                    <DataGrid 
+                      ItemsSource="{Binding MyList}"
+                      SelectedItem="{Binding SelectedItemStudent}" 
+                      AutoGenerateColumns="False">
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn  Header="Номер" Binding="{Binding id}" Width="50"/>
+                            <DataGridTextColumn Header="Имя" Binding="{Binding name}" MinWidth="150"/>
+
+                        </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
             </TabControl>

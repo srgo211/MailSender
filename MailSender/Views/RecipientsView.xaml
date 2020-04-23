@@ -19,7 +19,9 @@
         <Button Command="{Binding LoadRecipientsDataCommand}" DockPanel.Dock="Bottom" 
                 HorizontalAlignment="Center" Padding="40,5" Margin="0,5,0,10" Content="Обновить"/>
         <!--Добавляем таблицу-->
-            <DataGrid ItemsSource ="{Binding MainWindowModel.Recipients, Source={StaticResource Locator}}" 
+            <DataGrid 
+                ItemsSource ="{Binding MainWindowModel.Recipients,
+                Source={StaticResource Locator}}" 
                     SelectedItem="{Binding SalectedRecipient}" 
                    
                     AutoGenerateColumns="False"
