@@ -17,7 +17,8 @@
             <StackPanel DockPanel.Dock="Top" Height="Auto">
 
                 <!--Текст 1-->
-                <TextBox  Height="40" BorderThickness="3" Margin="10" FontSize="16" BorderBrush="Red"/>
+                <TextBox  Height="40" BorderThickness="3" Margin="10" FontSize="16" BorderBrush="Red"
+                          Text="{Binding Text}"/>
 
 
                 <!--Кнопки-->
@@ -28,7 +29,8 @@
                 </StackPanel>
 
                 <!--Текст 2-->
-                <TextBox  Height="40" BorderThickness="3" Margin="10" FontSize="16"/>
+                <TextBox  Height="40" BorderThickness="3" Margin="10" FontSize="16"
+                          Text="{Binding Text}"/>
 
                 
                 <ComboBox Height="40" BorderThickness="3" Margin="10" FontSize="16">

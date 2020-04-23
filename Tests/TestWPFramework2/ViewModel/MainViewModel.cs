@@ -12,17 +12,13 @@ namespace TestWPFramework2.ViewModel
 
 
         private string _Text = "“естовый проект дл€ прив€зки";
-        public string Text {
-            get => _Title;
-            
-            //если св-во обновилось
-            //if (set => Set(ref _Title, value))
+        public string Text 
+        {
+            get => _Text;
+            set => Set(ref _Text, value);
                     
         }
 
-
-        private int _TextLight;
-        public int TextLight { get => _TextLight; set => Set(ref _TextLight, value); }
 
 
 
