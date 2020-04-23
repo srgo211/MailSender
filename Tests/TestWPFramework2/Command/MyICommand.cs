@@ -58,6 +58,6 @@ namespace TestWPFramework2.Command
             CanExecuteChanged(this, EventArgs.Empty);
         }
 
-       
+
     }
 }

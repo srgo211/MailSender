@@ -14,25 +14,30 @@ namespace TestWPFramework2.ViewModel
     internal class MainViewModel : ViewModelBase
     {
 
+        #region [Collection]
+        private ObservableCollection<MyListClass> _КоллекцияВсехДанных;
 
-        public MainViewModel()
+        public ObservableCollection<MyListClass> КоллекцияВсехДанных
         {
-            MyList = new ObservableCollection<MyListClass>(GetDataStudent());
-            SaveStudentCMD = new MyICommand(SaveStudent);
-            DeleteStudentCMD = new MyICommand(DeleteStudent);
+            get => _КоллекцияВсехДанных;
+            private set => Set(ref _КоллекцияВсехДанных, value);
         }
+        #endregion
 
+        #region [Command]
+     
+        public ICommand ДобавитьДанные { get; set; }
+        public ICommand УдалитьДанные { get; set; }
 
+        #endregion
 
+        #region [Variable - Переменные ]
+        //ИД
+        private string _id;
+        public string id { get { return _id; } set { _id = value; OnPropertyChanged(); } }
 
-
-        public ICommand CreateRecipientCommand { get; }
-        public ICommand SaveStudentCMD { get; set; }
-        public ICommand DeleteStudentCMD { get; set; }
-
-        #region Обработка текста Text
+        //Установка имени + обновление символов
         private string _Name = "Любой текст";
-
         public string Name
         {
             get => _Name;
@@ -42,14 +47,12 @@ namespace TestWPFramework2.ViewModel
             {
                 if (Set(ref _Name, value))
                     OnPropertyChanged(nameof(TextLight));
-                    //OnPropertyChanged(nameof(MyList));
+
             }
 
         }
-        #endregion
 
-
-
+        //кол-во символов
         public string TextLight
         {
             get
@@ -59,37 +62,28 @@ namespace TestWPFramework2.ViewModel
             }
         }
 
-        #region [Collection]
-        private ObservableCollection<MyListClass> _MyList;
+        #endregion
 
-        public ObservableCollection<MyListClass> MyList
+        /// <summary>
+        /// Конструктор Модели представления
+        /// </summary>
+        public MainViewModel()
         {
-            get => _MyList;
-            private set => Set(ref _MyList, value);
+
+            КоллекцияВсехДанных = new ObservableCollection<MyListClass>(ЛистДанных());
+            
+            ДобавитьДанные = new MyICommand(ДобавитьКолВсехДанныхМетод);
+            УдалитьДанные = new MyICommand(УдалитьИзКолВсехДанныхМетод);
         }
-        #endregion
 
 
-        #region [Variable]
-        private string _id;
-        public string id { get { return _id; } set { _id = value; OnPropertyChanged(); } }
+        #region Методы реализации
 
-        //private string _Name;
-       // public string Name { get { return _Name; } set { _Name = value; OnPropertyChanged(); } }
-        #endregion
-
-
-        #region [Command]
-        public ICommand ShowDialogAddStudentCMD { get; set; }
-
-        #endregion
-
-
-        public List<MyListClass> GetDataStudent()
+        public List<MyListClass> ЛистДанных()
         {
             List<MyListClass> studentsLits = new List<MyListClass>();
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 100; i++)
             {
                 MyListClass student = new MyListClass();
                 student.id = i.ToString();
@@ -100,21 +94,22 @@ namespace TestWPFramework2.ViewModel
             return studentsLits;
         }
 
-        private MyListClass _selectedItemStudent;
-        public MyListClass SelectedItemStudent
+
+        private MyListClass _ПараметрыДанных;
+        public MyListClass ПараметрыДанных
         {
             get
             {
-                return _selectedItemStudent;
+                return _ПараметрыДанных;
             }
             set
             {
-                _selectedItemStudent = value;
+                _ПараметрыДанных = value;
                 OnPropertyChanged();
-                if (_selectedItemStudent != null)
+                if (_ПараметрыДанных != null)
                 {
-                    Name = SelectedItemStudent.name;
-                    id = SelectedItemStudent.id.ToString();
+                    Name = ПараметрыДанных.name;
+                    id = ПараметрыДанных.id.ToString();
                    
                 }
             }
@@ -123,14 +118,14 @@ namespace TestWPFramework2.ViewModel
 
 
 
-        public void SaveStudent()
+        public void ДобавитьКолВсехДанныхМетод()
         {
            
                 MyListClass student = new MyListClass();
-                student.id = new Random().Next(0,100).ToString();
+                student.id = id;
                 student.name = Name;
 
-                MyList.Add(student);
+                КоллекцияВсехДанных.Add(student);
 
                 id = String.Empty;
                 Name = String.Empty;
@@ -139,17 +134,17 @@ namespace TestWPFramework2.ViewModel
             
         }
 
-        public void DeleteStudent()
+        public void УдалитьИзКолВсехДанныхМетод()
         {
-            if (SelectedItemStudent != null)
+            if (ПараметрыДанных != null)
             {
-                MyList.Remove(SelectedItemStudent);
+                КоллекцияВсехДанных.Remove(ПараметрыДанных);
                 Name = String.Empty;
                 id = String.Empty;
 
             }
         }
-
+        #endregion
     }
 
     public class MyListClass

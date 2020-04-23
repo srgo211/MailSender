@@ -23,20 +23,20 @@
 
                 <!--Кнопки-->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Command="{Binding SaveStudentCMD}"  Width="100" Height="40" Margin="0,0,0,10" Content="Старт"  />
-                    <Button Command="{Binding DeleteStudentCMD}" Width="100" Height="40" Margin="0,0,0,10" Content="Стоп" />
+                    <Button Command="{Binding ДобавитьДанные}"  Width="100" Height="40" Margin="0,0,0,10" Content="Старт"  />
+                    <Button Command="{Binding УдалитьДанные}" Width="100" Height="40" Margin="0,0,0,10" Content="Стоп" />
 
                 </StackPanel>
 
                 <!--Текст 2-->
                 <TextBox  Height="40" BorderThickness="3" Margin="10" FontSize="16"
-                          Text="{Binding id, UpdateSourceTrigger=PropertyChanged}"/>
+                          Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
 
 
                 <ComboBox Height="40" BorderThickness="3" Margin="10" FontSize="16"
-                            ItemsSource="{Binding MyList}"
-                            SelectedItem="{Binding SelectedItemStudent}"
-                            DisplayMemberPath="name"
+                            ItemsSource="{Binding КоллекцияВсехДанных}"
+                            SelectedItem="{Binding ПараметрыДанных}"
+                            DisplayMemberPath="id"
                          
                          
                         IsEditable="True">
@@ -61,8 +61,8 @@
                     Background="Transparent"
                     BorderThickness="3"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                    ItemsSource="{Binding MyList}"
-                    SelectedItem="{Binding SelectedItemStudent}"
+                    ItemsSource="{Binding КоллекцияВсехДанных}"
+                    SelectedItem="{Binding ПараметрыДанных}"
                     DisplayMemberPath="name"         
                              
                     />
@@ -71,9 +71,10 @@
                 <!--Таблица-->
                     <TabItem  Header="Таблица">
                     <DataGrid 
-                      ItemsSource="{Binding MyList}"
-                      SelectedItem="{Binding SelectedItemStudent}" 
-                      AutoGenerateColumns="False">
+                      ItemsSource="{Binding КоллекцияВсехДанных}"
+                      SelectedItem="{Binding ПараметрыДанных}" 
+                      AutoGenerateColumns="False"
+                      IsReadOnly="False">
 
                         <DataGrid.Columns>
                             <DataGridTextColumn  Header="Номер" Binding="{Binding id}" Width="50"/>
