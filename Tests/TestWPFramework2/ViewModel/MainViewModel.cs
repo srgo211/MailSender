@@ -18,16 +18,45 @@ namespace TestWPFramework2.ViewModel
         #region Обработка текста Text
         private string _Text = "Любой текст";
 
-        public string Text 
+        public string Text
         {
             get => _Text;
-            set => Set(ref _Text, value); 
-        }
-        #endregion
+            //set => Set(ref _Text, value);
 
-
-
-
+            set
+            {
+                if (Set(ref _Text, value))
+                    OnPropertyChanged(nameof(TextLight));
+                    OnPropertyChanged(nameof(MyList));
+            }
 
     }
+    #endregion
+
+
+
+    public string TextLight => _Text.Length.ToString();
+
+
+
+
+        private ObservableCollection<MyListClass> _MyList;
+
+        public ObservableCollection<MyListClass> MyList
+        {
+            get => _MyList;
+            private set => Set(ref _MyList, value);
+        }
+
+    }
+
+     public class MyListClass
+    {
+
+        public int id { get; set; }
+
+        public string name { get; set; }
+
+    }
+
 }

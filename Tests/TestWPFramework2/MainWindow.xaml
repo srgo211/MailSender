@@ -18,8 +18,8 @@
             <StackPanel DockPanel.Dock="Top" Height="Auto">
 
                 <!--Текст 1-->
-                    <TextBox  Height="40" BorderThickness="3" Margin="10" FontSize="16"
-                          Text="{Binding Text}"/>
+                    <TextBlock  Height="40" Margin="10" FontSize="16"
+                          Text="{Binding TextLight}"/>
 
                 <!--Кнопки-->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -47,14 +47,15 @@
                 <TabItem
                     Header="Список">
                     <!--Список-->
-                    <ListBox
+                    <ListBox Name="phonesList"
                     SelectionMode="Extended"
                     HorizontalContentAlignment="Stretch"
                     Background="Transparent"
                     BorderThickness="0"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                     ItemsSource="{Binding List}"
-                    SelectedItem="{Binding Text}"/>
+                    
+                      />
                 </TabItem>
                 
                 <!--Таблица-->
